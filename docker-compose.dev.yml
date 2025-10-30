@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  katify-frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      VITE_API_URL: "https://dev.katify.ru/api/v1"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.katify-frontend-dev.rule=Host(`dev.katify.ru`)
+      - traefik.http.routers.katify-frontend-dev.entrypoints=websecure
+      - traefik.http.routers.katify-frontend-dev.tls.certresolver=letsencrypt
+      - traefik.http.services.katify-frontend-dev.loadbalancer.server.port=80
+    networks:
+      - traefik-proxy
+
+networks:
+  traefik-proxy:
+    external: true
