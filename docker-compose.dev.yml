@@ -4,8 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      VITE_API_URL: "https://dev.katify.ru/api/v1"
+    env_file:
+      - .env
     labels:
       - traefik.enable=true
       - traefik.http.routers.katify-frontend-dev.rule=Host(`dev.katify.ru`)
