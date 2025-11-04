@@ -13,7 +13,7 @@ jobs:
 
       - name: Generate .env from Secrets
         run: |
-          echo "VITE_API_URL=${{ secrets.DEV_VITE_API_URL }}" >> .env
+          echo "VITE_API_BASE_URL=${{ secrets.DEV_VITE_API_BASE_URL }}" >> .env
 
       - name: Run Docker Compose
         run: docker compose -f docker-compose.dev.yml up -d --build
