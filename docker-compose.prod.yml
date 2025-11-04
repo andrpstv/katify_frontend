@@ -9,7 +9,7 @@ services:
       - .env
     labels:
       - traefik.enable=true
-      - traefik.http.routers.katify-frontend.rule=Host(`katify.ru`) || Host(`www.katify.ru`)
+      - traefik.http.routers.katify-frontend.rule=Host(`katify.ru`) && !PathPrefix(`/api`)
       - traefik.http.routers.katify-frontend.entrypoints=websecure
       - traefik.http.routers.katify-frontend.tls.certresolver=letsencrypt
       - traefik.http.services.katify-frontend.loadbalancer.server.port=80
