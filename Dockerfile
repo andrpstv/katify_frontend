@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY . .
 
+COPY .env .
+
 RUN npm run build
 
 FROM nginx:alpine
