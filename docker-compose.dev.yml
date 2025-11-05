@@ -16,7 +16,7 @@ services:
 
       - traefik.http.routers.katify-frontend-dev-www.rule=Host(`www.dev.katify.ru`)
       - traefik.http.routers.katify-frontend-dev-www.entrypoints=websecure
-      - traefik.http.routers.katify-frontend-dev-www.middlewares=redirect-www-to-nonwww@file
+      - traefik.http.routers.katify-frontend-dev-www.middlewares=redirect-www-to-root@file
       - traefik.http.routers.katify-frontend-dev-www.service=katify-frontend-dev
     networks:
       - traefik-proxy
